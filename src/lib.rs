@@ -51,6 +51,17 @@ pub enum LineBufferRxError {
 }
 
 /// `LineBuffer` is a simple ring buffer that can be used to store bytes until a line terminator is reached.
+/// ```rust
+/// use strlinebuf::LineBuffer;
+///
+/// let mut line_buffer = LineBuffer::<10>::new();
+/// line_buffer.push_bytes(b"Hello\n").unwrap();
+///
+/// let mut aux_buffer = [0u8; 10];
+/// let bytes_read = line_buffer.read_line_bytes(&mut aux_buffer).unwrap();
+/// let line = core::str::from_utf8(&aux_buffer[..bytes_read]).unwrap();
+/// // line == "Hello"
+/// ```
 pub struct LineBuffer<const CAPACITY: usize> {
     pub buffer: [u8; CAPACITY],
     pub config: LineBufferConfig,
