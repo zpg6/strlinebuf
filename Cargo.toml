@@ -1,0 +1,11 @@
+[package]
+name = "strlinebuf"
+version = "0.0.1"
+description = "Simple no_std line buffer for separating lines from a byte stream."
+edition = "2021"
+license = "MIT"
+authors = ["Zach Grimaldi <zpg6@pitt.edu>"]
+documentation = "https://docs.rs/strlinebuf"
+repository = "https://github.com/zpg6/strlinebuf"
+categories = ["development-tools"]
+keywords = ["buffer", "no_std"]
